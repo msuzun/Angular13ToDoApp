@@ -1,0 +1,22 @@
+<h1 style="text-align: center;"> todoList Project</h1>
+
+<hr>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-3">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter TODO" aria-label="Enter TODO" aria-describedby="button-addon2" [(ngModel)]="newTodo">
+        <button class="btn btn-outline-secondary btn-primary" type="button" id="button-addon2" style="color: white;" (click)="saveToDo()">ADD TODO</button>
+      </div>
+      <table class="table table-stripped">
+        <tbody>
+          <tr *ngFor="let todo of todos;let i=index;">
+            <th scope="row">{{i+1}}</th>
+            <td class="{{(!todo.isCompleted)?'done':''}}" (click)="done(i)">{{todo.name}}</td>
+            <td style="color: red; font-weight: bold;" (click)="remove(i)">X</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>   
+  </div>
+</div>
